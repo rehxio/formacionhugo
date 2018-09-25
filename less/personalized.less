@@ -1,0 +1,127 @@
+// out: ../css/personalized.css, compress: false
+@colorBackground: #111;
+@colorBackgroundSecundary: #555;
+@colorText: #eee;
+
+@colorH: #f03e88; 
+@colorHSecundary: #c9177e; 
+
+@colorU: #4294ca; 
+@colorUSecundary: #3b83c0; 
+
+@colorG: #48ba91; 
+@colorGSecundary: #41a98a; 
+
+@colorO: #ebb951; 
+@colorOSecundary: #f7d804; 
+
+@linkColor: @colorH; 
+@linkHoverColor: @colorHSecundary;
+
+@baseFontSize: 20px;
+@headingFontSize: 50px;
+
+
+// Functions 
+
+.generateHeadings(@index) when (@index >= 1) {
+    h@{index} {
+        font-size: @headingFontSize - (@index * 5) !important; 
+        font-weight: bold !important;
+        text-shadow: none !important;
+        text-transform: none !important;
+    }
+    .generateHeadings(@index - 1);
+}
+
+.degradate(@colorA, @colorB){
+    background: @colorA;
+    background: -moz-radial-gradient(center, ellipse cover, @colorB 0%, @colorA 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, @colorB 0%, @colorA 100%);
+    background: radial-gradient(ellipse at center, @colorB 0%, @colorA 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@colorB', endColorstr='@colorA',GradientType=1 );        
+}
+
+// Styles
+
+body {
+
+    * {
+        color: @colorText !important;
+        font-family: "Muli" !important;
+        font-size: @baseFontSize !important; 
+    }
+
+    .degradate(@colorBackground, @colorBackgroundSecundary);    
+
+    pre, code, pre *, code * {
+        font-family: 'Courier New', Courier, monospace !important;
+        font-size: @baseFontSize - 4px !important; 
+    }
+
+    .generateHeadings(3);
+
+    ul li {
+        margin-bottom:20px !important;
+    }
+
+    a {
+        color: @linkColor !important;
+        transition: color .5s;
+        
+        &:hover {
+            color: @linkHoverColor !important;
+        }
+    }
+
+    aside.controls {
+        .left {
+            border-right-color: @colorH !important;
+        }
+        .up{
+            border-bottom-color: @colorU !important;
+        }
+        .right{
+            border-left-color: @colorG !important;
+        }
+        .down {
+            border-top-color: @colorO !important;
+        }
+    }
+
+    img, img:hover{ 
+        border: none !important;
+        background:none !important;
+        box-shadow:none !important;
+    }
+
+}
+section {
+    .footerSection {
+        display:block;
+        width: 100%;
+        position:absolute !important;
+        bottom:0 !important;
+        z-index: 10;
+        img{
+            margin:5px;
+            width: 30px;
+        }
+    }
+
+    h1, h2, h3 {
+        &.h{
+            color: @colorH !important;
+        }
+        &.u{
+            color: @colorU !important;
+        }
+        &.g{
+            color: @colorG !important;
+        }
+        &.o{
+            color: @colorO !important;
+        }
+    }
+
+}
