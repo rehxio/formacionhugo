@@ -10,12 +10,12 @@ body * {
   font-family: "Muli" !important;
   font-size: 20px !important;
 }
-body pre,
-body code,
-body pre *,
-body code * {
-  font-family: 'Courier New', Courier, monospace !important;
-  font-size: 16px !important;
+body i,
+body .fa {
+  font-family: "Font Awesome 5 Free" !important;
+}
+body .fab {
+  font-family: "Font Awesome 5 Brands" !important;
 }
 body h3 {
   font-size: 27.5px !important;
@@ -76,21 +76,92 @@ section .footerSection img {
 }
 section h1.h,
 section h2.h,
-section h3.h {
+section h3.h,
+section a.h,
+section span.h,
+section h1.h *,
+section h2.h *,
+section h3.h *,
+section a.h *,
+section span.h * {
   color: #f03e88 !important;
 }
 section h1.u,
 section h2.u,
-section h3.u {
+section h3.u,
+section a.u,
+section span.u,
+section h1.u *,
+section h2.u *,
+section h3.u *,
+section a.u *,
+section span.u * {
   color: #4294ca !important;
 }
 section h1.g,
 section h2.g,
-section h3.g {
+section h3.g,
+section a.g,
+section span.g,
+section h1.g *,
+section h2.g *,
+section h3.g *,
+section a.g *,
+section span.g * {
   color: #48ba91 !important;
 }
 section h1.o,
 section h2.o,
-section h3.o {
+section h3.o,
+section a.o,
+section span.o,
+section h1.o *,
+section h2.o *,
+section h3.o *,
+section a.o *,
+section span.o * {
   color: #ebb951 !important;
+}
+section .column-left {
+  width: 250px !important;
+  text-align: left !important;
+  margin: 0 auto;
+}
+section .column-left a {
+  color: #eee;
+  cursor: pointer;
+}
+section .column-left .tab {
+  margin-left: 20px;
+}
+section.two-columns section {
+  right: 0 !important;
+}
+section.two-columns .column-left {
+  position: absolute;
+  left: -250px !important;
+}
+section .icons i {
+  margin: 10px !important;
+  font-size: 100px !important;
+}
+.consoleStyle,
+body pre,
+body code,
+body pre *,
+body code *,
+section .column-left,
+section .column-left a,
+section .column-left .tab,
+section .column-left .tab span,
+section .column-left span {
+  font-family: monospace !important;
+  font-size: 16px !important;
+}
+.fa,
+body i,
+body .fa,
+body .fab {
+  font-style: normal !important;
+  margin-right: 5px !important;
 }

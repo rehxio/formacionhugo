@@ -13,6 +13,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 		<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> 
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
 		<link rel="stylesheet" href="plugin/highlight/styles/railscasts.css">
@@ -50,7 +51,7 @@
 
 						- [Descargar Hugo][] para instalarlo nos hará falta descomprimirlo y colocarlo en una carpeta que queramos y luego crear la variable de entorno hacia el .exe
 	
-						- Una vez hecho, para comprobar que está funcionando correctamente, hay que abrir un cmd y escribir <pre><code>hugo --version</code></pre>				
+						- Una vez hecho, para comprobar que está funcionando correctamente, hay que abrir un cmd y escribir: <pre><code>hugo --version</code></pre>				
 						
 						[Descargar Hugo]: https://github.com/gohugoio/hugo/releases					
 					</section>
@@ -93,45 +94,79 @@
 					proyecto como carpeta predeterminada sustituimos **misitio** por "**.**"
 
 					Quedando una estructura similar a esta:<br>
-					<img src="img/capturas/misitio.png">																														
+					<div class="column-left">
+						<span class="h"><i class="fas fa-folder "></i> misitio</span>
+						<div class="tab">
+							<span><i class="fas fa-folder"></i> archetypes</span><br>
+							<span><i class="fas fa-folder"></i> content</span><br>
+							<span><i class="fas fa-folder"></i> data</span><br>
+							<span><i class="fas fa-folder"></i> layout</span><br>
+							<span><i class="fas fa-folder"></i> static</span><br>
+							<span><i class="fas fa-folder"></i> themes</span><br>
+							<span><i class="fas fa-file-alt"></i> config.toml</span><br>
+						</div>
+					</div>																											
 			
 				</section>
 
-				<section data-markdown>
+				<section class="two-columns">
 					<h1 class="g">Instalar un tema</h1>
 					<br>
-					Para poder instalar un tema, es necesario que tengamos instalado el **[git][]**,
-					cuando lo tengamos instalado accedemos desde la terminal a la carpeta del sitio que hemos 
-					creado y lo inicializamos:
-					<pre><code>git init</code></pre>
-
-					Ahora tendremos que elegir un tema en la página de [temas para hugo][].
-					<br>
-					<br>
-					y luego según el tema que hayamos elegido algunos nos pondrán unos pasos a seguir, sólo será seguirlos, 
-					y los que no ponga nada, habrá un enlace a su github, podremos hacer un **git clone**, aunque recomiendo 
-					utilizar **git submodule add** en su lugar, ya que de ese modo nos enlaza el tema desde su repositorio 
-					pero no mete todos los archivos en nuestro proyecto, sólo será una referencia.
-					<br>
-					<br>
-					Por ejemplo para añadir el tema Ananke, se haría del siguiente modo:
-					
-					<pre><code>git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke</code></pre>
-					
-					Luego tendremos que editar el archivo config de nuestro sitio para añadir el tema, lo podemos hacer 
-					directamente desde terminal usando: 
-					
-					<pre><code>echo 'theme = "ananke"' >> config.toml</code></pre>
-
-					[temas para hugo]: https://themes.gohugo.io/
-					[git]: https://git-scm.com/book/es/v1/Empezando-Instalando-Git					
+					<div class="column-left">
+						<span><i class="fas fa-folder "></i> misitio</span>
+						<div class="tab">
+							<span><i class="fas fa-folder"></i> archetypes</span><br>
+							<span><i class="fas fa-folder"></i> content</span><br>
+							<span><i class="fas fa-folder"></i> data</span><br>
+							<span><i class="fas fa-folder"></i> layout</span><br>
+							<span><i class="fas fa-folder"></i> static</span><br>
+							<span class="u"><i class="fas fa-folder"></i> themes</span><br>
+							<span><i class="fas fa-file-alt"></i> config.toml</span><br>
+						</div>
+					</div>
+					<section data-markdown>
+						Para poder instalar un tema, es necesario que tengamos instalado el **[git][]**,
+						cuando lo tengamos instalado accedemos desde la terminal a la carpeta del sitio que hemos 
+						creado y lo inicializamos:
+						<pre><code>git init</code></pre>
+						Ahora tendremos que elegir un tema en la página de [temas para hugo][].
+						<br>
+						<br>
+						y luego según el tema que hayamos elegido algunos nos pondrán unos pasos a seguir, sólo será seguirlos, 
+						y los que no ponga nada, habrá un enlace a su github, podremos hacer un **git clone**, aunque recomiendo 
+						utilizar **git submodule add** en su lugar, ya que de ese modo nos enlaza el tema desde su repositorio 
+						pero no mete todos los archivos en nuestro proyecto, sólo será una referencia.
+						<br>
+						<br>
+						Por ejemplo para añadir el tema Ananke, se haría del siguiente modo:
+						<pre><code>git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke</code></pre>
+						Luego tendremos que editar el archivo config de nuestro sitio para añadir el tema, lo podemos hacer 
+						directamente desde terminal usando: 
+						<pre><code>echo 'theme = "ananke"' >> config.toml</code></pre>
+						[temas para hugo]: https://themes.gohugo.io/
+						[git]: https://git-scm.com/book/es/v1/Empezando-Instalando-Git
+					</section>					
 				</section>
 
-				<section data-markdown>
+				<section data-markdown class="two-columns">
 					<h1 class="o">Fichero de configuración</h1>
 					<br>
+					<div class="column-left">
+						<span><i class="fas fa-folder "></i> misitio</span>
+						<div class="tab">
+							<span><i class="fas fa-folder"></i> archetypes</span><br>
+							<span><i class="fas fa-folder"></i> content</span><br>
+							<span><i class="fas fa-folder"></i> data</span><br>
+							<span><i class="fas fa-folder"></i> layout</span><br>
+							<span><i class="fas fa-folder"></i> static</span><br>
+							<span><i class="fas fa-folder"></i> themes</span><br>
+							<a href="#/4" class="g"><i class="fas fa-file-alt"></i> config.toml</a><br>
+							<a href="#/4/1" class="o"><i class="fas fa-file-alt"></i> config.yml</a><br>
+							<a href="#/4/2" class="h"><i class="fas fa-file-alt"></i> config.json</a><br>
+						</div>
+					</div>
 					Para empezar, podemos utilizar 3 formatos distintos, Hugo por defecto leerá en orden los ficheros 
-					**[.toml](#/4)** > **[.yml](#/4/1)** > **[.json](#/4/2)**
+					**<a href="#/4" class="g">.toml</a>** > **<a href="#/4/1" class="o">.yml</a>** > **<a href="#/4/2" class="h">.json</a>**
 					<section>
 						Ejemplo TOML:<br>
 						<pre><code contenteditable>
@@ -186,55 +221,168 @@
 						</code></pre>
 					</section>
 					<span class="footerSection">
-						Nosotros recomendamos utilizar **[.yml](#/4/1)**, es el más cómodo.
+						Nosotros recomendamos utilizar **<a href="#/4/1" class="o">.yml</a>**, es el más cómodo.
 					</span>
 				</section>
 
-				<!-- TODO: organización de estructura content -->
-				<!-- TODO: organización de estructura data -->
-				<!-- TODO: organización de estructura layout -->
-				<!-- TODO: organización de estructura static -->
-				<section data-markdown>
+				<section data-markdown class="two-columns">
 					<h1 class="h">Organización de estructura</h1>
 					<br>
-					<section data-markdown>
-						<h3 class="u">Content</h3>
+					<div class="column-left">
+						<span><i class="fas fa-folder"></i> misitio</span>
+						<div class="tab">
+							<span><i class="fas fa-folder"></i> archetypes</span><br>
+							<a href="#/5" class="u"><i class="fas fa-folder"></i> content<br>
+							<div class="tab">
+								<span><i class="fas fa-file-alt"></i> contact.md</span><br>								
+							</div></a>
+							<a href="#/5/1" class="g"><i class="fas fa-folder"></i> data<br>
+							<div class="tab">
+								<span><i class="fas fa-file-alt"></i> contact.yml</span><br>
+							</div></a>
+							<a href="#/5/2" class="o"><i class="fas fa-folder"></i> layout<br>
+							<div class="tab">
+								<span><i class="fas fa-folder"></i> page</span><br>
+								<div class="tab">
+									<span><i class="fas fa-file-alt"></i> contact.html</span><br>
+								</div>
+								<span><i class="fas fa-folder"></i> partials</span><br>
+								<div class="tab">
+									<span><i class="fas fa-folder"></i> contact</span><br>
+									<div class="tab">
+										<span><i class="fas fa-file-alt"></i> body.html</span><br>
+									</div>
+									<span><i class="fas fa-file-alt"></i> header.html</span><br>
+									<span><i class="fas fa-file-alt"></i> footer.html</span><br>
+								</div>
+								<span><i class="fas fa-file-alt"></i> index.html</span><br>
+							</div></a>
+							<a href="#/5/3" class="h"><i class="fas fa-folder"></i> static<br>
+							<div class="tab">
+								<span><i class="fas fa-folder"></i> css</span><br>
+								<span><i class="fas fa-folder"></i> img</span><br>
+								<span><i class="fas fa-folder"></i> js</span><br>
+							</div></a>
+							<span><i class="fas fa-folder"></i> themes</span><br>
+							<span><i class="fas fa-file-alt"></i> config.yml</span><br>
+						</div>
+					</div>		
+					<section>
+						<h3 class="u"><i class="fas fa-folder"></i> Content</h3>
 						<br>
-
-	
+						En esta carpeta tendremos archivos en Markdown para definir que carpeta 
+						y archivo html se debe abrir al querer ir a una página de nuestro sitio.
+						<br><br>
+						Estos archivos llevan la siguiente estructura: 
+						<pre><code>
+							---
+							layout: contact
+							---
+						</code></pre>
+						sustituyendo _contact_ por el nombre del html al que queremos hacer referencia.
 					</section>
 
-					<section data-markdown>
-						<h3 class="g">Data</h3>
+					<section>
+						<h3 class="g"><i class="fas fa-folder"></i> Data</h3>
 						<br>
+						En esta carpeta estará el contenido del texto y contenido de variables, 
+						donde podemos tener parametros para controlar si se muestra una cosa u otra.
+						<br>
+						<br>
+						En este tipo de ficheros podemos crear la estructura que queramos, lo cual es
+						bueno porque podemos llevar una buena organización.
+						<br><br>
+						Un ejemplo de un fichero llamado **<span class="g">contact.yml</span>** sería:<br>
+						<pre><code>
+							enable: true
+							title: Contacto
+							phones:
+							  - 690328803
+							  - 922423513
+							places:
+							  - name: ¿Oficina principal?
+							    lat: 41.895495
+								lon: 12.4773
+						</code></pre>
+						En este caso enable es un parámetro que usaremos como variable para habilitar o 
+						deshabilitar la página, en el caso de _phones_: al poner el guión reconoce que tiene 
+						un array de elementos.
 
-	
 					</section>
 
-					<section data-markdown>
-						<h3 class="o">Layout</h3>
+					<section>
+						<h3 class="o"><i class="fas fa-folder"></i> Layout</h3>
 						<br>
+						En esta carpeta crearemos la estructura de cada página y sus distintas partes que 
+						irán en la carpeta partials, gracias a que hugo permite realizar páginas por partes
+						y así poder integrar una misma parte en varias páginas.
+						<br>
+						<br>
+						También permite que con una sóla página se puedan crear varias sustituyendo contenido.
+						<br>
+						<br>
+						Por ejemplo, en el fichero contact.html, sería así: 
+						<pre><code>
+							{{ if .Site.Data.contact.enable }}
+								{{ partial "header.html" . }}
+								{{ partial "contact/body.html" .Site.Data.contact }}
+								{{ partial "footer.html" . }}
+							{{ end }}
+						</code></pre>
+						<br>
+						<ul>
+							<li> Partial: indica a hugo que es una parte de un html mayor.</li>
+							<li> El punto al final de la linea, le pasa el contexto al fichero referenciado.</li>
+						</ul>
 
-	
 					</section>
-					<section data-markdown>
-						<h3 class="u">Static</h3>
-						<br>
 
-	
+					<section>
+						<h3 class="h"><i class="fas fa-folder"></i> Static</h3>
+						<br>
+						Como su nombre indica, aquí tendremos todos los ficheros estáticos como suelen imagenes, javascript, 
+						css... entre otros.<br>
+						<br><br>
+						<div class="icons">
+							<i class="fas fa-image"></i>
+							<i class="fab fa-js"></i>
+							<i class="fab fa-css3-alt"></i>
+						</div>
 					</section>
 				</section>
 
+				<!-- TODO: internacionalización -->
 				<section data-markdown>
-					<h1 class="u">¡Listo!</h1>
+					<h1 class="u">Internacionalización</h1>
+					
+				</section>
+
+				<!-- TODO: funcionamiento funciones -->
+				<!-- TODO: funcionamiento variables -->
+				<!-- TODO: funcionamiento condiciones -->
+				<section>
+					<h1 class="g">Funcionamiento</h1>
+					<br>
+					<section data-markdown>
+						<h3 class="o">Funcionalidades</h3>
+						Hay varias funcionalidades como pueden ser: _if_, _range_, _with_
+					</section>
+					<section data-markdown>
+						<h3 class="u">Condiciones</h3>
+						En las condiciones se utilizan igual q
+					</section>
+					<section data-markdown>
+						<h3 class="h">Variables</h3>
+						
+					</section>
+				</section>
+				
+				<section data-markdown>
+					<h1 class="o">¡Listo!</h1>
 					### Ya tienen las nociones básicas para utilizar Hugo.
 					[<img src="img/hugopet.svg" alt="Hugo Pet">](#)
 				</section>
 
-				<!-- TODO: internacionalización -->
-				<!-- TODO: funcionamiento funciones -->
-				<!-- TODO: funcionamiento variables -->
-				<!-- TODO: funcionamiento condiciones -->
 			</div>
 
 		</div>

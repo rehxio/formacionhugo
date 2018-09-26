@@ -52,12 +52,20 @@ body {
         font-size: @baseFontSize !important; 
     }
 
-    .degradate(@colorBackground, @colorBackgroundSecundary);    
+    i, .fa {
+        &:extend(.fa);
+        font-family: "Font Awesome 5 Free" !important;
+    }
+    .fab {
+        &:extend(.fa);
+        font-family: "Font Awesome 5 Brands" !important;
+    }
 
     pre, code, pre *, code * {
-        font-family: 'Courier New', Courier, monospace !important;
-        font-size: @baseFontSize - 4px !important; 
+        &:extend(.consoleStyle);
     }
+
+    .degradate(@colorBackground, @colorBackgroundSecundary);    
 
     .generateHeadings(3);
 
@@ -97,6 +105,7 @@ body {
 
 }
 section {
+
     .footerSection {
         display:block;
         width: 100%;
@@ -109,19 +118,62 @@ section {
         }
     }
 
-    h1, h2, h3 {
-        &.h{
+    h1, h2, h3, a, span {
+        &.h, &.h *{
             color: @colorH !important;
         }
-        &.u{
+        &.u, &.u *{
             color: @colorU !important;
         }
-        &.g{
+        &.g, &.g *{
             color: @colorG !important;
         }
-        &.o{
+        &.o, &.o *{
             color: @colorO !important;
         }
     }
 
+    .column-left {
+        width: 250px !important;
+        text-align:left !important;
+        margin:0 auto;
+        &:extend(.consoleStyle);
+
+        a {
+            color: @colorText;
+            cursor:pointer;
+        }
+        .tab {
+            margin-left:20px;
+        }
+        a, .tab, .tab span, span {
+            &:extend(.consoleStyle);
+        }
+    }
+
+    &.two-columns {
+
+        section {
+            right:0 !important;
+        }
+        .column-left {
+            position:absolute;
+            left:-250px !important;
+        }
+    }
+    
+    .icons i {
+        margin:10px !important;
+        font-size:100px !important;
+    }
+}
+
+.consoleStyle {
+    font-family: monospace !important;
+    font-size: @baseFontSize - 4px !important; 
+}
+
+.fa {
+    font-style: normal !important;
+    margin-right:5px !important;
 }
