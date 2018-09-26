@@ -1,11 +1,11 @@
 {
-	"author": "Hakim El Hattab",
-	"name": "reveal.js",
-	"description": "HTML5 Slideware with Presenter Notes",
+	"author": "Lean Mind",
+	"name": "formacionhugo",
+	"description": "Formación sobre Hugo",
 	"version": "1.5.0",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/hakimel/reveal.js.git"
+		"url": "https://github.com/rehxio/formacionhugo.git"
 	},
 	"engines": {
 		"node": "~0.8.0"
@@ -15,6 +15,5 @@
 		"express" : "~2.5.9",
 		"socket.io" : "~0.9.6",
 		"mustache" : "~0.4.0"
-	},
-	"devDependencies": {}
+	}
 }

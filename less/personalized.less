@@ -26,7 +26,7 @@
 
 .generateHeadings(@index) when (@index >= 1) {
     h@{index} {
-        font-size: @headingFontSize - (@index * 5) !important; 
+        font-size: @headingFontSize - (@index * 7.5) !important; 
         font-weight: bold !important;
         text-shadow: none !important;
         text-transform: none !important;
@@ -47,7 +47,7 @@
 body {
 
     * {
-        color: @colorText !important;
+        color: @colorText;
         font-family: "Muli" !important;
         font-size: @baseFontSize !important; 
     }
