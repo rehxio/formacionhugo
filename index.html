@@ -44,17 +44,30 @@
 				</section>
 
 				<section>
+					<h1 class="o">¿Qué es Hugo?</h1>
+					Es un generador de sitios estáticos escrito en Go. <br>
+					Está optimizado para velocidad, fácil uso y configurabilidad. <br>
+					Hugo toma un directorio con contenido y plantillas y los convierte en un sitio web html completo.  <br>
+					Es un proyecto de código abierto con licencia Apache License 2.0 <br>
+					<img src="img/hugopet2.svg" class="pet">
+					<br><br>
+					Lo usan páginas cómo: <br>
+					<a href="https://letsencrypt.org/" class="pageLogo" target="_blank"><img src="img/logos/letsencrypt.jpg">Let's Encrypt</a>
+					<a href="https://forestry.io/" class="pageLogo" target="_blank"><img src="img/logos/forestry.jpg">Forestry</a>
+					<a href="https://www.paceup.com/en/" class="pageLogo" target="_blank"><img src="img/logos/paceup.jpg">Pace</a>
+				</section>
+
+				<section>
 					<h1 class="h">Instalación</h1>
 					<section data-markdown>
 						<h3 class="u">Windows:</h3>  
 						<br>
 
-						- [Descargar Hugo][] para instalarlo nos hará falta descomprimirlo y colocarlo en una carpeta que queramos y luego crear la variable de entorno hacia el .exe
+						- <a href="https://github.com/gohugoio/hugo/releases" target="_blank">Descargar Hugo</a> para instalarlo nos hará falta descomprimirlo y colocarlo en una carpeta que queramos y luego crear la variable de entorno hacia el .exe
 	
-						- Una vez hecho, para comprobar que está funcionando correctamente, hay que abrir un cmd y escribir: <pre><code>hugo --version</code></pre>				
-						
-						[Descargar Hugo]: https://github.com/gohugoio/hugo/releases					
+						- Una vez hecho, para comprobar que está funcionando correctamente, hay que abrir un cmd y escribir: <pre><code>hugo --version</code></pre>					
 					</section>
+
 					<section data-markdown>
 						<h3 class="g">Linux:</h3>
 						<br>
@@ -70,16 +83,19 @@
 					<section data-markdown>
 						<h3 class="o">Mac OS:</h3>
 						<br>
-						 <!-- TODO: Investigar la parte de Mac con la máquina virtual -->
-						Para Mac tenemos 3 modos de instalarlo
+						Para instalarlo en Mac necesitamos Homebrew que se instala usando el siguiente comando:
+						<pre><code>/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
 
-						- Modo 1: Homebrew
-						Ejecutar en terminal: <pre><code>brew install hugo</code></pre>
+						Cuando esté instalado el Homebrew hay que ejecutar el siguiente comando para que instalar Hugo: 
+						<pre><code>brew install hugo</code></pre>
+
+						Y por último para comprobar que se ha instalado correctamente habría que ejecutar: 
+						<pre><code>hugo version</code></pre>
 					</section>
 					<span class="footerSection">
-						<a href="#/1"><img src="img/logos/windows_logo.png"></a> 
-						<a href="#/1/1"><img src="img/logos/linux_logo.png"></a> 
-						<a href="#/1/2"><img src="img/logos/mac_logo.png"></a>
+						<a href="#/2"><img src="img/logos/windows_logo.png"></a> 
+						<a href="#/2/1"><img src="img/logos/linux_logo.png"></a> 
+						<a href="#/2/2"><img src="img/logos/mac_logo.png"></a>
 					</span>
 				</section>
 
@@ -125,11 +141,11 @@
 						</div>
 					</div>
 					<section data-markdown>
-						Para poder instalar un tema, es necesario que tengamos instalado el **[git][]**,
+						Para poder instalar un tema, es necesario que tengamos instalado el **<a href="https://git-scm.com/book/es/v1/Empezando-Instalando-Git" target="_blank">git</a>**,
 						cuando lo tengamos instalado accedemos desde la terminal a la carpeta del sitio que hemos 
 						creado y lo inicializamos:
 						<pre><code>git init</code></pre>
-						Ahora tendremos que elegir un tema en la página de [temas para hugo][].
+						Ahora tendremos que elegir un tema en la página de <a href="https://themes.gohugo.io/" target="_blank">temas para hugo</a>.
 						<br>
 						<br>
 						y luego según el tema que hayamos elegido algunos nos pondrán unos pasos a seguir, sólo será seguirlos, 
@@ -143,8 +159,7 @@
 						Luego tendremos que editar el archivo config de nuestro sitio para añadir el tema, lo podemos hacer 
 						directamente desde terminal usando: 
 						<pre><code>echo 'theme = "ananke"' >> config.toml</code></pre>
-						[temas para hugo]: https://themes.gohugo.io/
-						[git]: https://git-scm.com/book/es/v1/Empezando-Instalando-Git
+
 					</section>					
 				</section>
 
@@ -160,13 +175,13 @@
 							<span><i class="fas fa-folder"></i> layout</span><br>
 							<span><i class="fas fa-folder"></i> static</span><br>
 							<span><i class="fas fa-folder"></i> themes</span><br>
-							<a href="#/4" class="g"><i class="fas fa-file-alt"></i> config.toml</a><br>
-							<a href="#/4/1" class="o"><i class="fas fa-file-alt"></i> config.yml</a><br>
-							<a href="#/4/2" class="h"><i class="fas fa-file-alt"></i> config.json</a><br>
+							<a href="#/5" class="g"><i class="fas fa-file-alt"></i> config.toml</a><br>
+							<a href="#/5/1" class="o"><i class="fas fa-file-alt"></i> config.yml</a><br>
+							<a href="#/5/2" class="h"><i class="fas fa-file-alt"></i> config.json</a><br>
 						</div>
 					</div>
 					Para empezar, podemos utilizar 3 formatos distintos, Hugo por defecto leerá en orden los ficheros 
-					**<a href="#/4" class="g">.toml</a>** > **<a href="#/4/1" class="o">.yml</a>** > **<a href="#/4/2" class="h">.json</a>**
+					**<a href="#/5" class="g">.toml</a>** > **<a href="#/5/1" class="o">.yml</a>** > **<a href="#/5/2" class="h">.json</a>**
 					<section>
 						Ejemplo TOML:<br>
 						<pre><code contenteditable>
@@ -221,7 +236,7 @@
 						</code></pre>
 					</section>
 					<span class="footerSection">
-						Nosotros recomendamos utilizar **<a href="#/4/1" class="o">.yml</a>**, es el más cómodo.
+						Nosotros recomendamos utilizar **<a href="#/5/1" class="o">.yml</a>**, es el más cómodo.
 					</span>
 				</section>
 
@@ -232,15 +247,15 @@
 						<span><i class="fas fa-folder"></i> misitio</span>
 						<div class="tab">
 							<span><i class="fas fa-folder"></i> archetypes</span><br>
-							<a href="#/5" class="u"><i class="fas fa-folder"></i> content<br>
+							<a href="#/6" class="u"><i class="fas fa-folder"></i> content<br>
 							<div class="tab">
 								<span><i class="fas fa-file-alt"></i> contact.md</span><br>								
 							</div></a>
-							<a href="#/5/1" class="g"><i class="fas fa-folder"></i> data<br>
+							<a href="#/6/1" class="g"><i class="fas fa-folder"></i> data<br>
 							<div class="tab">
 								<span><i class="fas fa-file-alt"></i> contact.yml</span><br>
 							</div></a>
-							<a href="#/5/2" class="o"><i class="fas fa-folder"></i> layout<br>
+							<a href="#/6/2" class="o"><i class="fas fa-folder"></i> layout<br>
 							<div class="tab">
 								<span><i class="fas fa-folder"></i> page</span><br>
 								<div class="tab">
@@ -257,7 +272,7 @@
 								</div>
 								<span><i class="fas fa-file-alt"></i> index.html</span><br>
 							</div></a>
-							<a href="#/5/3" class="h"><i class="fas fa-folder"></i> static<br>
+							<a href="#/6/3" class="h"><i class="fas fa-folder"></i> static<br>
 							<div class="tab">
 								<span><i class="fas fa-folder"></i> css</span><br>
 								<span><i class="fas fa-folder"></i> img</span><br>
@@ -458,7 +473,7 @@
 						<span><i class="fas fa-folder "></i> misitio</span>
 						<div class="tab">
 							<span><i class="fas fa-folder"></i> archetypes</span><br>
-							<a href="#/7/1" class="o"><i class="fas fa-folder"></i> content<br>
+							<a href="#/8/1" class="o"><i class="fas fa-folder"></i> content<br>
 							<div class="tab">
 								<span><i class="fas fa-folder"></i> en</span><br>
 								<div class="tab">
@@ -469,14 +484,14 @@
 									<span><i class="fas fa-file-alt"></i> contact.md</span><br>
 								</div>
 							</div></a>	
-							<a href="#/7/2" class="h"><i class="fas fa-folder"></i> data<br>
+							<a href="#/8/2" class="h"><i class="fas fa-folder"></i> data<br>
 							<div class="tab">
 								<span><i class="fas fa-file-alt"></i> contact.yml</span><br>
 							</div></a>	
 							<span><i class="fas fa-folder"></i> layout</span><br>
 							<span><i class="fas fa-folder"></i> static</span><br>
 							<span><i class="fas fa-folder"></i> themes</span><br>
-							<a href="#/7" class="g"><i class="fas fa-file-alt"></i> config.yml</a><br>
+							<a href="#/8" class="g"><i class="fas fa-file-alt"></i> config.yml</a><br>
 						</div>
 					</div>
 
@@ -539,13 +554,6 @@
 					
 				</section>
 
-				<section>
-					<!-- TODO: paginas que usan hugo -->
-					https://letsencrypt.org/
-					https://forestry.io/
-					https://www.paceup.com/en/
-				</section>
-				
 				<section data-markdown>
 					<h1 class="o">¡Listo!</h1>
 					### Ya tienen las nociones básicas para utilizar Hugo.

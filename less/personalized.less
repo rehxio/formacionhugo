@@ -63,6 +63,7 @@ body {
 
     pre, code, pre *, code * {
         &:extend(.consoleStyle);
+        width: 915px !important;
     }
 
     .degradate(@colorBackground, @colorBackgroundSecundary);    
@@ -179,6 +180,23 @@ section {
     .icons i {
         margin:10px !important;
         font-size:100px !important;
+    }
+
+    .pageLogo {
+        width: 150px;
+        display:inline-block;
+    }
+    .pageLogo img{
+        width: 100px;
+    }
+
+    .pet {
+        width: 150px;
+        float:right;
+        position:absolute;
+        right:0;
+        margin:0 !important;
+        margin-right:-100px !important;
     }
 }
 
