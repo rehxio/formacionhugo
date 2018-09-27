@@ -70,7 +70,7 @@
 					<section data-markdown>
 						<h3 class="o">Mac OS:</h3>
 						<br>
-						 <!-- TODO : Investigar la parte de Mac con la máquina virtual -->
+						 <!-- TODO: Investigar la parte de Mac con la máquina virtual -->
 						Para Mac tenemos 3 modos de instalarlo
 
 						- Modo 1: Homebrew
@@ -351,30 +351,199 @@
 					</section>
 				</section>
 
-				<!-- TODO: internacionalización -->
-				<section data-markdown>
-					<h1 class="u">Internacionalización</h1>
-					
-				</section>
-
 				<!-- TODO: funcionamiento funciones -->
-				<!-- TODO: funcionamiento variables -->
-				<!-- TODO: funcionamiento condiciones -->
 				<section>
 					<h1 class="g">Funcionamiento</h1>
 					<br>
 					<section data-markdown>
 						<h3 class="o">Funcionalidades</h3>
-						Hay varias funcionalidades como pueden ser: _if_, _range_, _with_
+						Una gran ventaja que tiene hugo es que permite simplificar estructura usando bucles para obtener todos 
+						los datos de un campo, de este modo no tenemos que conocer la cantidad de elementos que contiene y se 
+						puede actualizar en todo momento, o también permite usar condiciones para poder activar o desactivar 
+						contenido que no nos interese mostrar.
+						<br>
+						<br>
+						Hay varias funcionalidades como pueden ser: _if_, _range_, _with_... existen muchos más, pero estos 
+						son los más útiles
+						<br>
+						<br>
+						Este sería un ejemplo utilizando las 3 funcionalidades<br>
+						<pre><code>
+							{{ with .Site.Data.contact }}
+								{{ if .enable }}
+									&lt;ul>
+										{{ range .phones }}
+											&lt;li>&lt;a href="tel:{{ . }}">{{ . }}&lt;/a>&lt;/li>
+										{{ end }}
+									&lt;/ul>
+								{{ end }}
+							{{ end }}
+
+						</code></pre>
 					</section>
+					<!-- TODO: funcionamiento condiciones -->
 					<section data-markdown>
 						<h3 class="u">Condiciones</h3>
-						En las condiciones se utilizan igual q
-					</section>
-					<section data-markdown>
-						<h3 class="h">Variables</h3>
+						<table>
+							<tr>
+								<th>Normalmente</th>
+								<td>==</td>
+								<td>!=</td>
+								<td>!</td>
+								<td>>=</td>
+								<td>></td>
+								<td>&lt;=</td>
+								<td>&lt;</td>
+							</tr>
+							<tr>
+								<th>En Hugo</th>
+								<td>eq</td>
+								<td>ne</td>
+								<td>not</td>
+								<td>ge</td>
+								<td>gt</td>
+								<td>le</td>
+								<td>lt</td>
+							</tr>
+						</table>
+						<br>
+						<br>
+						Y a la hora de utilizarlo sería así:
+						<pre><code>
+							{{ if not true }} ¡No entra! {{ end }}
+							{{ if ne "Pedro" "Paco" }} ¡Entra! {{ end }}
+							{{ if gt 10 5 }} ¡No entra! {{ end }}
+							{{ if le 5 5 }} ¡Entra! {{ end }}
+
+						</code></pre>
 						
 					</section>
+					<!-- TODO: funcionamiento variables -->
+					<section data-markdown>
+						<h3 class="h">Variables</h3>
+						Otra de las funcionalidades que ayudan a facilitar la creación de un sitio web con Hugo es el uso de 
+						variables, ya que podemos crear una estructura simple y repetirla. 
+						<br>
+						<br>
+						Por ejemplo en el caso de los miembros y los aprendices, realmente es una sola estructura y se usa con 
+						diferente contenido, e incluso dentro de la misma página sólo hay una estructura para una carpeta y esta 
+						a su vez hace un range por cada información que tenemos en _data_.
+						<br>
+						<br>
+						Así es como mostramos la descripción de todos los miembros y aprendices, este código se repite por cada 
+						archivo _.yml_ que tenemos en _data_.
+						<pre><code>
+							{{ $lang := .Language.Lang }}
+							{{ with .Site.Data.member }}
+								&lt;div class="info-card">
+									&lt;img class="photo" src="{{ .image }}" alt="{{ .name }} photo" />
+									&lt;h2 class="name">{{ .name }}&lt;/h2>
+									{{ with index . $lang }}
+										{{ range .description }}
+											&lt;p>{{ . }}&lt;/p>
+										{{ end }}
+									{{ end }}
+								&lt;/div>
+							{{ end }}
+
+						</code></pre>
+					</section>
+				</section>
+
+				<!-- TODO: Internacionalización -->
+				<section class="two-columns">
+					<h1 class="u">Internacionalización</h1>
+					<br>
+					<div class="column-left">
+						<span><i class="fas fa-folder "></i> misitio</span>
+						<div class="tab">
+							<span><i class="fas fa-folder"></i> archetypes</span><br>
+							<a href="#/7/1" class="o"><i class="fas fa-folder"></i> content<br>
+							<div class="tab">
+								<span><i class="fas fa-folder"></i> en</span><br>
+								<div class="tab">
+									<span><i class="fas fa-file-alt"></i> contact.md</span><br>
+								</div>
+								<span><i class="fas fa-folder"></i> es</span><br>
+								<div class="tab">
+									<span><i class="fas fa-file-alt"></i> contact.md</span><br>
+								</div>
+							</div></a>	
+							<a href="#/7/2" class="h"><i class="fas fa-folder"></i> data<br>
+							<div class="tab">
+								<span><i class="fas fa-file-alt"></i> contact.yml</span><br>
+							</div></a>	
+							<span><i class="fas fa-folder"></i> layout</span><br>
+							<span><i class="fas fa-folder"></i> static</span><br>
+							<span><i class="fas fa-folder"></i> themes</span><br>
+							<a href="#/7" class="g"><i class="fas fa-file-alt"></i> config.yml</a><br>
+						</div>
+					</div>
+
+					<section  data-markdown>
+						<h3 class="g">Configuración</h3>
+						En el fichero de configuración habría que añadir estas variables para que Hugo reconozca la carpeta de cada idioma
+						<br>
+						<pre><code>
+							# ...
+							Languages:
+							  es: 
+							    contentDir: content/es
+							  en: 
+							    contentDir: content/en
+							# ...
+
+						</code></pre>
+					</section>
+
+					<section  data-markdown>
+						<h3 class="o">Organización</h3>
+						En el _content_ habrán varias carpetas, una por idioma, que apuntarán a una misma página html del modo que hemos visto antes.
+						<br>
+						<br>
+						Los diferentes idiomas del texto estarán contenidos en _data_, de este modo tenemos un solo fichero con la información tanto 
+						en un idioma como en el otro y con un selector podremos cambiar el contenido de uno al otro.
+						<br>
+						<pre><code>
+							enable: true
+							icon: fa fa-contact
+							es:
+							  title: Contacto
+							en:
+							  title: Contact
+
+						</code></pre>
+					</section>
+
+					<section  data-markdown>
+						<h3 class="h">Funcionamiento</h3>
+						Teniendo el fichero **contact.yml** mencionado anteriormente, hay varias formas de acceder a esa información, directamente:
+						<pre><code>
+							{{ .Site.Data.contact.enable }}
+							{{ .Site.Data.contact.icon }}
+							{{ .Site.Data.contact.es.title }}
+							{{ .Site.Data.contact.en.title }}
+
+						</code></pre>
+
+						o de esta otra forma, en la que si añadimos un nuevo idioma, no vamos a tener que cambiar esta información:
+						<pre><code>
+							{{ .Site.Data.contact.enable }}
+							{{ with index .Site.Data.contact .Lang }}
+								{{ .title }}
+							{{ end }}
+							{{ .Site.Data.contact.icon }}
+
+						</code></pre>
+					</section>
+					
+				</section>
+
+				<section>
+					<!-- TODO: paginas que usan hugo -->
+					https://letsencrypt.org/
+					https://forestry.io/
+					https://www.paceup.com/en/
 				</section>
 				
 				<section data-markdown>
@@ -384,13 +553,10 @@
 				</section>
 
 			</div>
-
 		</div>
-
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
-
 
 		<script>
 			Reveal.initialize({

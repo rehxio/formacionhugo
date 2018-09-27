@@ -63,6 +63,20 @@ body img:hover {
   background: none !important;
   box-shadow: none !important;
 }
+body table {
+  margin: 0 auto !important;
+}
+body table * {
+  text-shadow: none !important;
+}
+body table th {
+  font-weight: bold !important;
+}
+body table th,
+body table td {
+  text-align: right !important;
+  padding: 5px 10px !important;
+}
 section .footerSection {
   display: block;
   width: 100%;
