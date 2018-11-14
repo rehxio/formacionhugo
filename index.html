@@ -366,7 +366,6 @@
 					</section>
 				</section>
 
-				<!-- TODO: funcionamiento funciones -->
 				<section>
 					<h1 class="g">Funcionamiento</h1>
 					<br>
@@ -396,7 +395,7 @@
 
 						</code></pre>
 					</section>
-					<!-- TODO: funcionamiento condiciones -->
+
 					<section data-markdown>
 						<h3 class="u">Condiciones</h3>
 						<table>
@@ -433,7 +432,7 @@
 						</code></pre>
 						
 					</section>
-					<!-- TODO: funcionamiento variables -->
+
 					<section data-markdown>
 						<h3 class="h">Variables</h3>
 						Otra de las funcionalidades que ayudan a facilitar la creación de un sitio web con Hugo es el uso de 
@@ -465,7 +464,6 @@
 					</section>
 				</section>
 
-				<!-- TODO: Internacionalización -->
 				<section class="two-columns">
 					<h1 class="u">Internacionalización</h1>
 					<br>
@@ -551,11 +549,28 @@
 
 						</code></pre>
 					</section>
-					
 				</section>
 
 				<section data-markdown>
-					<h1 class="o">¡Listo!</h1>
+					<h1 class="o">Despliegue!</h1>
+					<h3 class="h"> Para poder desplegarlo</h3>
+					Para desplegarlo en local por lo general se puede usar: 
+					<pre><code>hugo server -D</code></pre>
+					
+					o también puedes usar esta si quieres que se ignore la caché:
+					<pre><code>hugo server -D --ignoreCache</code></pre>
+
+					Esto levantará la página en un servidor local y te pondrá un enlace con la ip y puerto para poder acceder y verlo en vivo según realizas
+					cambios, cuando lo tengas todo listo y se vea como quieres, sólo hay que usar el siguiente comando:
+
+					<pre><code>hugo</code></pre>
+
+					esto te generará una carpeta _public_ con todo el sitio preparado, el contenido de esta carpeta sería lo que debes subir a tu servidor y apuntar con 
+					tu servidor web.
+				</section>
+
+				<section data-markdown>
+					<h1 class="h">¡Listo!</h1>
 					### Ya tienen las nociones básicas para utilizar Hugo.
 					[<img src="img/hugopet.svg" alt="Hugo Pet">](#)
 				</section>

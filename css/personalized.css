@@ -154,6 +154,11 @@ section .column-left a {
 section .column-left .tab {
   margin-left: 20px;
 }
+@media screen and (max-width: 1500px) {
+  section .column-left {
+    display: none;
+  }
+}
 section.two-columns section {
   right: 0 !important;
 }
